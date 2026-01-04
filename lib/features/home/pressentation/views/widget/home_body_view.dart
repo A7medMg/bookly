@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../core/utils/assets.dart';
 import 'customAppBar.dart';
+import 'custom_List_View_Books.dart';
+import 'custom_Bookitem_view.dart';
 
 class HomeBodyView extends StatelessWidget {
   const HomeBodyView({super.key});
@@ -17,9 +19,13 @@ class HomeBodyView extends StatelessWidget {
           icon:  FontAwesomeIcons.magnifyingGlass,
 
         ),
+        FeatureBooksListView()
+        
       ],
     );
   }
 }
+
+
 
 
