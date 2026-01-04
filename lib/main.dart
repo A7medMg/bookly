@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'constants.dart';
 import 'features/splash/pressentation/views/splash_view.dart';
@@ -16,9 +17,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+      theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
+
+
+
       ),
       home:const SplashView(),
 
