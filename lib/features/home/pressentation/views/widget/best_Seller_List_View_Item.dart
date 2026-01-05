@@ -61,7 +61,7 @@ class CustomBestSellerItem extends StatelessWidget {
                         ),
                       ),
                       Spacer(),
-                     const  CustomRatingBestSeller(),
+                       CustomRatingBestSeller(),
                     ],
                   ),
                 ],

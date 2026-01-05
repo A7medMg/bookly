@@ -1,21 +1,44 @@
+import 'package:bookly/core/utils/assets.dart';
+import 'package:bookly/features/home/pressentation/views/widget/similar_book_section.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/styles.dart';
+
+import 'bookRating.dart';
 import 'book_details_custom_app_bar.dart';
+import 'book_details_list_viewbuilder.dart';
+import 'book_details_section.dart';
+import 'box_action.dart';
+import 'custom_Bookitem_view.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: Column(
-        children: [
-          CustomBookDetailsAppBar()
-        ],
-      ),
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: Column(
+
+              children: [
+                const CustomBookDetailsAppBar(),
+                const BooksDetailsSection(),
+                const Expanded(child: SizedBox(height: 50)),
+                const  SimilarBooksSection(),
+
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
+
+
 
 

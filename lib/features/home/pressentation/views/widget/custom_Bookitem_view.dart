@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/assets.dart';
-class CustomViewItem extends StatelessWidget {
-  const CustomViewItem({super.key});
+class CustomBookImageView extends StatelessWidget {
+  const CustomBookImageView({super.key});
 
   @override
   Widget build(BuildContext context) {
