@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../constants.dart';
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../home/pressentation/views/home.dart';
 
@@ -47,7 +49,9 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   }
   void navigatorToHome(){
     Future.delayed(const Duration(seconds: 2),(){
-      Get.to(()=>const HomeScreen(),transition: Transition.fade,duration: kTranstionDuration);
+
+      GoRouter.of(context).go(AppRouter.kHomeView,);
+
     });
   }
   void initAnimation(){
