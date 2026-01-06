@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/book_model/book_model.dart';
 
 class CustomRatingBestSeller extends StatelessWidget {
+ final num? rating;
+ final int ratingCount;
   final MainAxisAlignment mainAxisAlignment;
-   CustomRatingBestSeller({super.key,  this.mainAxisAlignment=MainAxisAlignment.start});
+  const CustomRatingBestSeller({super.key,  this.mainAxisAlignment=MainAxisAlignment.start, required this.rating, required this.ratingCount});
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +20,13 @@ class CustomRatingBestSeller extends StatelessWidget {
             color: Colors.amber),
         const SizedBox(width: 6),
         Text(
-          "4.8",
+         "$rating",
           style: Styles.textStyle20,
         ),
         const SizedBox(width: 5),
         Opacity(
             opacity: .5,
-            child: Text("(239)", style: Styles.textStyle14)),
+            child: Text("($ratingCount)", style: Styles.textStyle14)),
       ],
     );
   }

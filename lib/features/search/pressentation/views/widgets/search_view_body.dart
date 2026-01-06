@@ -39,7 +39,7 @@ class ResultListView extends StatelessWidget {
         itemBuilder: (context,inex){
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: const CustomBestSellerItem(),
+            child: Text("data")//const CustomBestSellerItem(),
           );
         });
   }

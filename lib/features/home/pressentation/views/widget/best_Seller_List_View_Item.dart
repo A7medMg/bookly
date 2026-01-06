@@ -1,14 +1,19 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/book_model/book_model.dart';
 import 'bookRating.dart';
+import 'custom_Bookitem_view.dart';
 
 
 class CustomBestSellerItem extends StatelessWidget {
-  const CustomBestSellerItem({super.key});
+  final BookModel bookModel;
+  const CustomBestSellerItem({super.key, required this.bookModel});
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +25,7 @@ class CustomBestSellerItem extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.6 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(10),
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(AssetsData.test),
-                  ),
-                ),
-              ),
-            ),
+            CustomBookImageView(imageUrl:bookModel.volumeInfo.imageLinks!.thumbnail ,),
             const SizedBox(width: 30),
             Expanded(
               child: Column(
@@ -44,24 +37,25 @@ class CustomBestSellerItem extends StatelessWidget {
 
                     child: Text(
                       maxLines: 2,
-                      "Jungle Book and other stories of Jungle",
+                      bookModel.volumeInfo.title!,
                       style: Styles.textStyle20,
                     ),
                   ),
                   const SizedBox(height: 3),
-                  Text("Rudyard Kipling", style: Styles.textStyle14),
+                  Text(bookModel.volumeInfo.authors![0], style: Styles.textStyle14),
                   const SizedBox(height: 5),
 
                   Row(
                     children: [
                       Text(
-                        "19.99 EGP",
+                        "Free",
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Spacer(),
-                       CustomRatingBestSeller(),
+                       const Spacer(),
+
+                      CustomRatingBestSeller(rating: bookModel.volumeInfo.averageRating??4.3, ratingCount: bookModel.volumeInfo.ratingsCount ??255),
                     ],
                   ),
                 ],

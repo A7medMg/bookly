@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import '../../../../../core/utils/assets.dart';
 class CustomBookImageView extends StatelessWidget {
-  const CustomBookImageView({super.key});
+
+  final String imageUrl;
+
+  const CustomBookImageView({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
 
-      child: AspectRatio(
-        aspectRatio: 2.6/4,
-        child: Container(
-
-
-          decoration: BoxDecoration(
-              color: Colors.red,
-              borderRadius:  BorderRadius.circular(16),
-              image:const  DecorationImage(
-
-                  fit: BoxFit.fill,
-                  image: AssetImage(AssetsData.test))
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: AspectRatio(
+          aspectRatio: 2.6/4,
+          child: CachedNetworkImage(
+              fit: BoxFit.fill,
+              imageUrl: imageUrl,
+            errorWidget: (context, url, error) => Icon(Icons.error),
+          
           ),
         ),
       ),

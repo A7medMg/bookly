@@ -17,7 +17,9 @@ class BookDetailsListview extends StatelessWidget {
           itemBuilder: (context,index){
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              child: const CustomBookImageView(),
+              child: const CustomBookImageView(
+                imageUrl: "https://www.freepik.com/free-psd/yellow-gift-with-golden-ribbon-icon-sign-symbol-3d-background-illustration_71292021.htm#fromView=keyword&page=1&position=0&uuid=f83a0af5-a45a-4fb2-a735-1dc515550149&query=Png",
+              ),
             );
           }),
     );;
