@@ -19,13 +19,14 @@ class CustomBestSellerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+
+        GoRouter.of(context).push(AppRouter.kBookDetailsView,extra: bookModel);
       },
       child: SizedBox(
         height: 120,
         child: Row(
           children: [
-            CustomBookImageView(imageUrl:bookModel.volumeInfo.imageLinks!.thumbnail ,),
+            CustomBookImageView(imageUrl:bookModel.volumeInfo.imageLinks?.thumbnail  ?? "",),
             const SizedBox(width: 30),
             Expanded(
               child: Column(
@@ -37,12 +38,17 @@ class CustomBestSellerItem extends StatelessWidget {
 
                     child: Text(
                       maxLines: 2,
-                      bookModel.volumeInfo.title!,
+                      bookModel.volumeInfo.title ?? "",
                       style: Styles.textStyle20,
                     ),
                   ),
                   const SizedBox(height: 3),
-                  Text(bookModel.volumeInfo.authors![0], style: Styles.textStyle14),
+                  Text(
+                      maxLines: 1,
+                      bookModel.volumeInfo.authors?[0]??"", style: Styles.textStyle14.copyWith(
+                    overflow: TextOverflow.ellipsis,
+
+                  )),
                   const SizedBox(height: 5),
 
                   Row(

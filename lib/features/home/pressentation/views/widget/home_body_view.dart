@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/book_model/book_model.dart';
 import 'best_Seller_List_View_Item.dart';
 import 'customAppBar.dart';
 import 'customBestseller_List_Viewbuilder.dart';
@@ -10,6 +11,7 @@ import 'custom_List_View_Books.dart';
 
 
 class HomeBodyView extends StatelessWidget {
+
   const HomeBodyView({super.key});
 
   @override

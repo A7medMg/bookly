@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/book_model/book_model.dart';
 import 'bookRating.dart';
 import 'box_action.dart';
 import 'custom_Bookitem_view.dart';
@@ -8,7 +10,8 @@ import 'custom_Bookitem_view.dart';
 
 
 class BooksDetailsSection extends StatelessWidget {
-  const BooksDetailsSection({super.key});
+  final BookModel bookModel;
+  const BooksDetailsSection({super.key, required this.bookModel});
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +22,13 @@ class BooksDetailsSection extends StatelessWidget {
             horizontal: MediaQuery.of(context).size.width * 0.19,
           ),
           child: CustomBookImageView(
-            imageUrl: "https://www.freepik.com/free-psd/yellow-gift-with-golden-ribbon-icon-sign-symbol-3d-background-illustration_71292021.htm#fromView=keyword&page=1&position=0&uuid=f83a0af5-a45a-4fb2-a735-1dc515550149&query=Png",
+            imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail,
           ),
         ),
         const SizedBox(height: 42),
         Text(
-          "The Jungle Book",
+          textAlign: TextAlign.center,
+         bookModel.volumeInfo.title!,
 
           style: Styles.textStyle30,
         ),
@@ -32,7 +36,7 @@ class BooksDetailsSection extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            "Rudyard Kipling",
+           bookModel.volumeInfo.authors!.first,
 
             style: Styles.textStyle18.copyWith(
               fontStyle: FontStyle.italic,
@@ -42,10 +46,10 @@ class BooksDetailsSection extends StatelessWidget {
         ),
         const SizedBox(height: 18),
        CustomRatingBestSeller(
-          mainAxisAlignment: MainAxisAlignment.center, rating: 3, ratingCount: 3,
+          mainAxisAlignment: MainAxisAlignment.center, rating: bookModel.volumeInfo.averageRating??0, ratingCount: bookModel.volumeInfo.ratingsCount??0,
         ),
         const SizedBox(height: 37),
-        const CustomBoxAction(),
+         CustomBoxAction(bookModel: bookModel,),
       ],
     );
   }

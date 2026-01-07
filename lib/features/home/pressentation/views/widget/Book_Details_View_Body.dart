@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 
+import '../../../data/models/book_model/book_model.dart';
 import 'bookRating.dart';
 import 'book_details_custom_app_bar.dart';
 import 'book_details_list_viewbuilder.dart';
@@ -12,7 +13,8 @@ import 'box_action.dart';
 import 'custom_Bookitem_view.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+  final BookModel bookModel;
+  const BookDetailsViewBody({super.key, required this.bookModel});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class BookDetailsViewBody extends StatelessWidget {
 
               children: [
                 const CustomBookDetailsAppBar(),
-                const BooksDetailsSection(),
+                 BooksDetailsSection(bookModel: bookModel,),
                 const Expanded(child: SizedBox(height: 50)),
                 const  SimilarBooksSection(),
 

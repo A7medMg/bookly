@@ -2,8 +2,8 @@ import 'package:bookly/features/home/pressentation/viewsmodels/newestBooksCubit/
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/utils/custom_error_view.dart';
-import '../../../../../core/utils/custom_loading-indicator.dart';
+import '../../../../../core/widgets/custom_error_view.dart';
+import '../../../../../core/widgets/custom_loading-indicator.dart';
 import 'best_Seller_List_View_Item.dart';
 
 class CustomBestSellListBuilder extends StatelessWidget {
